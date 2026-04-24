@@ -1,0 +1,21 @@
+{
+  "name": "odd-runner-agents",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript runners for ODD agents",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "gertrudes": "tsx src/gertrudes-run.ts",
+    "orchestrator": "tsx src/orchestrator.ts"
+  },
+  "dependencies": {
+    "@qdrant/js-client-rest": "^1.15.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

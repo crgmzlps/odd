@@ -115,8 +115,8 @@ Responsável por:
 # Execução
 
 docker-compose exec airflow-scheduler bash -lc\
-"python /opt/scripts/agents/gertrudes_run.py --product schola --root
-/opt/products --force"
+"cd /opt/scripts/agents && npm run gertrudes -- --product schola --root
+/opt/products --agent-root /opt/agents --force"
 
 ------------------------------------------------------------------------
 
