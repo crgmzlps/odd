@@ -41,7 +41,7 @@ Ferramentas necessárias:
 
 -   Docker
 -   Docker Compose
--   Python 3.10+
+-   Node.js 20+
 -   Git
 -   Ollama
 
@@ -99,7 +99,7 @@ No Airflow você pode:
 Para executar apenas o agente **Gertrudes**:
 
 ``` bash
-docker-compose exec airflow-scheduler bash -lc "python /opt/scripts/agents/gertrudes_run.py --product schola --root /opt/products --force"
+docker-compose exec airflow-scheduler bash -lc "cd /opt/scripts/agents && npm run gertrudes -- --product schola --root /opt/products --agent-root /opt/agents --force"
 ```
 
 Parâmetros:
@@ -179,15 +179,14 @@ Eles permitem analisar:
 Modo desenvolvimento local:
 
 ``` bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+cd tools/runner/scripts/agents
+npm install
 ```
 
 Execute o agente:
 
 ``` bash
-python tools/runner/agents/gertrudes_run.py   --product schola   --root products   --force
+npm run gertrudes -- --product schola --root /home/runner/work/odd/odd/tools/runner/products --agent-root /home/runner/work/odd/odd/tools/runner/agents --force
 ```
 
 ------------------------------------------------------------------------

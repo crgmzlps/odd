@@ -28,7 +28,10 @@ with DAG(
 
     @task
     def run_gertrudes(product: str):
-        cmd = f"python /opt/airflow/dags/../../scripts/agents/gertrudes_run.py --product {product} --root /opt/products"
+        cmd = (
+            "bash -lc "
+            f"\"cd /opt/scripts/agents && npm run gertrudes -- --product {product} --root /opt/products --agent-root /opt/agents\""
+        )
         rc = os.system(cmd)
         if rc != 0:
             raise RuntimeError(f"gertrudes failed for {product}")

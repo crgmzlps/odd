@@ -75,12 +75,12 @@ LLM gera output fundamentado
 
 ```sh
 docker compose exec toolbox bash -lc \
-"python /work/scripts/agents/orchestrator.py /opt/products/new/schola"
+"cd /work/scripts/agents && npm run orchestrator -- /opt/products/new/schola"
 ```
 
 ### Rodar a Gertrudes manualmente
 
 ```sh
 docker-compose exec airflow-scheduler bash -lc \
-"python /opt/scripts/agents/gertrudes_run.py --product schola --root /opt/products"
+"cd /opt/scripts/agents && npm run gertrudes -- --product schola --root /opt/products --agent-root /opt/agents"
 ```

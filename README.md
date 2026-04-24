@@ -94,7 +94,7 @@ Responsável por transformar planilhas de Event Storming em dashboards via Terra
 
 Cada prompt do Planner pode usar um modelo de LLM diferente (Ollama local, OpenAI ou Anthropic Claude).
 
-### tools (Python/Docker) — Em construção
+### tools (TypeScript/Docker) — Em construção
 
 Pipeline multi-agente para geração de requisitos usando RAG (Retrieval-Augmented Generation).
 
@@ -122,7 +122,7 @@ Pipeline multi-agente para geração de requisitos usando RAG (Retrieval-Augment
 | Banco vetorial | Qdrant |
 | Orquestração | Apache Airflow + Celery |
 | Dashboards | Datadog, Dynatrace, Grafana Cloud + Terraform (IaC) |
-| Linguagens | TypeScript (orchestrator), Python (agentes) |
+| Linguagens | TypeScript (orchestrator e agentes) |
 | Infraestrutura | Docker Compose, PostgreSQL, Redis |
 
 ## Estado atual e roadmap
@@ -323,8 +323,8 @@ cd tools/iac
 docker-compose up -d
 
 # Executar Gertrudes manualmente
-docker-compose exec airflow-scheduler python /opt/scripts/agents/gertrudes_run.py \
-  --product schola --root /opt/products --force
+docker-compose exec airflow-scheduler bash -lc \
+  "cd /opt/scripts/agents && npm run gertrudes -- --product schola --root /opt/products --agent-root /opt/agents --force"
 ```
 
 ## Formato de entrada — Event Storming
