@@ -29,8 +29,8 @@ async function ollamaEmbed(text: string): Promise<number[]> {
   return data.embedding;
 }
 
-function pack(points: Array<{ score?: number; payload?: Record<string, unknown> }>) {
-  return points.map((p) => ({ score: Number(p.score ?? 0), payload: { ...(p.payload ?? {}) } }));
+function pack(points: Array<{ score?: number; payload?: Record<string, unknown> | null }>) {
+  return points.map((p) => ({ score: Number(p.score ?? 0), payload: { ...((p.payload ?? {}) as Record<string, unknown>) } }));
 }
 
 export async function twoStageSearch(
