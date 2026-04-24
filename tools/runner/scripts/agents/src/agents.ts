@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { twoStageSearch } from './rag-two-stage';
+import { twoStageSearch } from './rag-two-stage.js';
 
 function sha256(s: string): string {
   return createHash('sha256').update(s, 'utf8').digest('hex');

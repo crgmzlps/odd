@@ -1,6 +1,6 @@
 import { access, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { Corrinha, Creuza, Gertrudes, readJson, readText } from './agents';
+import { Corrinha, Creuza, Gertrudes, readJson, readText } from './agents.js';
 
 async function exists(filePath: string): Promise<boolean> {
   try {
